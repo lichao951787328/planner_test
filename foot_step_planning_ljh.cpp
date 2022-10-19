@@ -34,8 +34,8 @@ std::vector<std::pair<Eigen::Vector3d, bool> > foot_step_planning(std::vector<do
     param.SetEdgeCostYaw(param, 4.0);
     param.SetEdgeCostStaticPerStep(param, 1.4);
     param.SetDebugFlag(param, false);
-    param.SetMaxStepYaw(param, PAI/10);//PAI/11
-    param.SetMinStepYaw(param, -PAI/10);//-p1/11        
+    param.SetMaxStepYaw(param, PAI/11);//PAI/11
+    param.SetMinStepYaw(param, -PAI/11);//-p1/11        
 
     param.SetFinalTurnProximity(param, 0.3);
     param.SetGoalDistanceProximity(param, 0.04);
@@ -48,8 +48,8 @@ std::vector<std::pair<Eigen::Vector3d, bool> > foot_step_planning(std::vector<do
     param.SetHWPOfFinalTurnDistacne(param,1.30);
     param.SetHWPOfFinalWalkDistacne(param,1.30);
 
-    param.SetMaxStepLength(param, 0.14);//0.12
-    param.SetMinStepLength(param,-0.14);//-0.12
+    param.SetMaxStepLength(param, 0.10);//0.12
+    param.SetMinStepLength(param,-0.10);//-0.12
     param.SetMaxStepWidth(param,0.22);//0.22
     param.SetMinStepWidth(param,0.16);
     param.SetMaxStepReach(param,sqrt((param.MaxStepWidth-param.MinStepWidth) * (param.MaxStepWidth-param.MinStepWidth) + param.MaxStepLength * param.MaxStepLength));
