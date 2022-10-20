@@ -147,12 +147,16 @@ int main(int argc, char** argv)
 {
   // 台阶参数
   float step_width = 0.5; float step_depth = 0.35; float step_height = 0.04;
-  // 第一组参数
+  // 第一组参数 先上台阶再转弯
   // Eigen::Vector3f step_center(0.4, -0.05, step_height);
   // float pyaw = - 5/57.3;
 
-  Eigen::Vector3f step_center(0.4, -0.05, step_height);
-  float pyaw = - 5/57.3;
+  // 第二段参数
+  // Eigen::Vector3f step_center(0.55, -0.08, step_height);
+  // float pyaw = - 8/57.3;
+
+  Eigen::Vector3f step_center(0.55, -0.08, step_height);
+  float pyaw = - 8/57.3;
 
   stepClimbed step_climbed(step_width, step_depth, step_height);
   step_climbed.initial_position(step_center.x(), step_center.y(), pyaw);
@@ -217,13 +221,18 @@ int main(int argc, char** argv)
   Eigen::Vector3f second_stage_start = first_stage_output_steps.back().position + broadwise_direct * 0.08;
   second_stage_start.z() = 0.0;
   // 假设终点
-  float x = 1.4;
-  float y = - 0.28;
-  float theta =  - 28/57.3;
+  float x = 1.3;
+  float y = - 0.25;
+  float theta =  - 30/57.3;
   // 第一组参数
   // float x = 1.4;
   // float y = - 0.28;
   // float theta =  - 28/57.3;
+
+  // 第二组参数
+  // float x = 1.3;
+  // float y = - 0.25;
+  // float theta =  - 30/57.3;
   Eigen::Vector3f goal(x, y, 0.0);
   Eigen::Vector3f second_stage_goal = goal - second_stage_start;
   cout<<"second_stage_goal: "<<second_stage_goal.transpose()<<endl;
