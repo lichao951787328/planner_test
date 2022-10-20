@@ -155,8 +155,10 @@ int main(int argc, char** argv)
   // Eigen::Vector3f step_center(0.55, -0.08, step_height);
   // float pyaw = - 8/57.3;
 
-  Eigen::Vector3f step_center(0.55, -0.08, step_height);
-  float pyaw = - 8/57.3;
+  Eigen::Vector3f step_center(0.55, -0.00, step_height);
+  float pyaw = - 0/57.3;
+
+ 
 
   stepClimbed step_climbed(step_width, step_depth, step_height);
   step_climbed.initial_position(step_center.x(), step_center.y(), pyaw);
@@ -222,8 +224,8 @@ int main(int argc, char** argv)
   second_stage_start.z() = 0.0;
   // 假设终点
   float x = 1.3;
-  float y = - 0.25;
-  float theta =  - 30/57.3;
+  float y = - 0.3;
+  float theta =  - 80/57.3;
   // 第一组参数
   // float x = 1.4;
   // float y = - 0.28;
