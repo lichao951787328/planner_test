@@ -17,8 +17,13 @@ include_directories(
 link_libraries(FootstepPlanner)
 add_executable(generatesteps main.cpp foot_step_planning_ljh.cpp)
 
+add_executable(readsteps readsteps.cpp)
+
 target_link_libraries(
   generatesteps
   ${PYTHON_LIBRARIES}
   glog::glog
 )
+# target_link_libraries(
+#   readsteps
+# )

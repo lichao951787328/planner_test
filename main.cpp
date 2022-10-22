@@ -16,6 +16,7 @@
 #include <Eigen/Geometry>
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include <array>
 using namespace std;
 namespace plt = matplotlibcpp;
@@ -225,7 +226,7 @@ int main(int argc, char** argv)
   // 假设终点
   float x = 1.3;
   float y = - 0.3;
-  float theta =  - 80/57.3;
+  float theta =  - 60/57.3;
   // 第一组参数
   // float x = 1.4;
   // float y = - 0.28;
@@ -282,7 +283,14 @@ int main(int argc, char** argv)
     tmpstep.yaw = step.yaw + pyaw;
     result_steps.emplace_back(tmpstep);
   }
-
+  ofstream ofile;
+  ofile.open("/home/humanoid/turn_right_planner/planner_test/steps.txt");
+  for (auto & tmpstep : result_steps)
+  {
+    ofile<<tmpstep.is_left<<" "<<tmpstep.position.x()<<" "<<tmpstep.position.y()<<" "<<tmpstep.position.z()<<" "<<tmpstep.yaw<<endl;
+  }
+  // result_steps.pop_back();
+  // result_steps.pop_back();
   showSteps(result_steps);
   return 0;
 }
